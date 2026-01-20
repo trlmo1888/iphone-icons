@@ -22,9 +22,40 @@
             width: 100vw;
             height: 100vh;
             position: fixed;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(255, 64, 129, 0.9) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(156, 39, 176, 0.9) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(244, 143, 177, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(33, 150, 243, 0.9) 0%, transparent 50%),
+                radial-gradient(ellipse at 10% 60%, rgba(255, 152, 0, 0.8) 0%, transparent 50%),
+                linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             user-select: none;
             -webkit-user-select: none;
+        }
+
+        /* Animación sutil del fondo */
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 195, 113, 0.2) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            z-index: -1;
         }
 
         .home-screen {
@@ -125,7 +156,7 @@
         }
 
         .dock {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
             border-radius: 16px;
@@ -443,5 +474,3 @@
     </script>
 </body>
 </html>
-
- 
